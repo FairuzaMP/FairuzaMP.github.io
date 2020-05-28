@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <style>
+        body {
+            /* background-color:black; */
+            margin: 0;
+            background-image: url("./backgroundtekst.png");
+            background-size: 100%;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;            
+        }
+
+        .canvas {
+            width: 3840px;
+            height: 2160px;
+            align-self: center;
+            opacity: 90%;
+            /* border-bottom: 50px black;
+            padding: 50px black; */
+        }
+
+        image:hover {
+            mask: url("#cursorMask");
+            width: 3840px;
+            height: 2160px;
+        }
+
+        .copyright {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            /* background: black; */
+        }
+
+        .email {
+            text-decoration: none;
+
+        }
+
+        .email p {
+            font-size: 20px;
+            text-transform: none;
+            color: rgb(126, 125, 125);
+        }
+    </style>
+</head>
+
+<body>
+    <svg>
+        <defs>
+            <mask id="cursorMask" maskUnits="objectBoundingBox" maskContentUtils="objectBoundingBox">
+                <g>
+                    <!-- the SECOND rect elemnt is what determines the transparent area -->
+                    <rect x="0" y="0" width="100%" height="100%" fill="#FFFFFF" />
+                    <rect x="0" y="0" width="100" height="100" fill="#000000" />
+                </g>
+            </mask>
+        </defs>
+        <image class="canvas" xlink:href="./blurry.png" />
+            
+    </svg>
+    <div class="copyright">
+        <a class="email" href="mailto:f.m.pamenan@gmail.com">
+            <p>&copy; 2020 Fairuza Pamenan</p>
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var img = document.getElementsByTagName("image")[0];
+            var imgPos = img.getBoundingClientRect();
+            var imgX = imgPos.left;
+            var imgY = imgPos.top;
+            var rect = document.getElementsByTagName("rect")[1];
+            var rectHalfWidth = rect.getAttribute("width") / 2;
+            var rectHalfHeight = rect.getAttribute("height") / 2;
+            img.addEventListener("mousemove", function (e) {
+                rect.setAttribute("x", e.clientX - imgX - rectHalfWidth);
+                rect.setAttribute("y", e.clientY - imgY - rectHalfHeight);
+            }, false);
+        });
+        // var bla = "hallo hier zit een double quote in \""
+
+    </script>
+</body>
+
+</html>

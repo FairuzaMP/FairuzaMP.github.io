@@ -1,0 +1,103 @@
+<!-- 
+    Quarantine
+    An art project made by Fairuza Pamenan
+    from Gerrit Rietveld Academie
+
+    Last modified: 09-04-2020
+-->
+
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgb(238, 208, 208);
+            /* background-color: black; */
+        }
+
+        .frame {
+            border-style: solid;
+            border-width: 20px;
+            border-color: black;
+            /* border-color: whitesmoke; */
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            margin-top: 125px;
+            overflow: scroll;
+            justify-content: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .invisible {
+            padding-top: 9em;
+        }
+
+        p {
+            font-family: Baskerville;
+            font-size: 280px;
+            color: black;
+            /* color: whitesmoke; */
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .copyright {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            /* background: black; */
+        }
+
+        .email {
+            text-decoration: none;
+
+        }
+
+        .email p {
+            font-size: 20px;
+            text-transform: none;
+            color: rgb(179, 140, 140);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="frame">
+        <div class="invisible">
+            <!-- <p> I'm </p>
+            <p> too </p>
+            <p> big </p>
+            <p> for </p>
+            <p> this </p>
+            <p>place. </p> -->
+
+            <p> I'm too big for this space.</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <a class="email" href="mailto:f.m.pamenan@gmail.com">
+            <p>&copy; 2020 Fairuza Pamenan</p>
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var outerContent = $('.frame');
+            var innerContent = $('.invisible > p');
+
+            outerContent.scrollLeft((innerContent.width() - outerContent.width()) / 2);
+        });
+
+    </script>
+</body>
+
+</html>
